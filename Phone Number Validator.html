@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Number Validator</title>
+	// Here I have done a bit of styling work for the website to look atractive. 
 	<style type="text/css">
 		body {
 			background-color: #ffccff;
@@ -17,14 +18,28 @@
 		}
 	</style>
 	<script type="text/javascript">
+	// Here I've created a function known as validate. There are no arguments passed here.
 	function validate()
 	{
+		// Here we are taking the value submitted by the user.
 		var text=document.getElementById("text1").value;
-		var regx = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
-		if(regx.test(text))
+		// Here regex means regular expression.
+		// This '^' is used for denoting the beginning of the string.
+		// The (1\s?)? is used for allowing '1' alone or '1 ' with a space.
+		// The \d{n} is used for allowing the digits [0-9] for 'n' mentioned times.
+		// So here \d{3} is used for allowing 3 places for any of 0-9 digits.
+		// Here (\(\d{3}\)|\d{3}) or condition is checked. Either three digits with parentheses, or three digits with no parentheses can be executed.
+		// The [\s\-]? is used for allowing either spaces or dashes only.
+		// The $ is used for denoting the end of the string.
+		var regex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
+		// The regex.test is a property or event where the required condition is true or not.
+		if(regex.test(text))
 		{
+			// The label Id is accessed & the output text is printed accordingly.
 			document.getElementById("label").innerHTML="Valid US Phone Number"
+			// By using the css stling with visibility attribute we can either hide or show the text.
 			document.getElementById("label").style.visibility="visible";
+			// The text is colored by using the color property/
 			document.getElementById("label").style.color="green";
 		}
 		else
