@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Number Validator</title>
+	<style type="text/css">
+		body {
+			background-color: #ffccff;
+			text-align: center;
+			color: #663300;
+		}
+		#text1 {
+			height: 25px;
+			border-radius: 5px;
+		}
+		button {
+			background-color: #9900ff;
+		}
+	</style>
+	<script type="text/javascript">
+	function validate()
+	{
+		var text=document.getElementById("text1").value;
+		var regx = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
+		if(regx.test(text))
+		{
+			document.getElementById("label").innerHTML="Valid US Phone Number"
+			document.getElementById("label").style.visibility="visible";
+			document.getElementById("label").style.color="green";
+		}
+		else
+		{
+			document.getElementById("label").innerHTML="InValid US Phone Number"
+			document.getElementById("label").style.visibility="visible";
+			document.getElementById("label").style.color="red";
+		}
+	}
+	</script>
+</head>
+<body>
+	<h1>Phone Number Validator</h1>
+	<h4>Enter a number to check whether it is a valid US phone number or not</h4>
+	<input id="text1" type="text" name="Mobile" placeholder="Enter your contact number">
+	<br>
+	<label id="label" style='color:red; visibility:hidden'>Invalid U.S Number</label>
+	<br>
+	<button onclick="validate()" type="button">SUBMIT</button>
+</body>
+</html>
